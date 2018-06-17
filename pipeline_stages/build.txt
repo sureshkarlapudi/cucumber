@@ -4,7 +4,7 @@ stage ("build") {
     
 try {
        notifyStarted()
-           sh "E:/Maven/apache-maven-3.5.3-bin/apache-maven-3.5.3/bin/mvn compile"
+           sh "E:/Maven/apache-maven-3.5.3-bin/apache-maven-3.5.3/bin/mvn package"
        notifySuccessful()
 
      
