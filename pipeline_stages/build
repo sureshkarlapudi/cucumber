@@ -4,7 +4,7 @@ stage ("build") {
     
 try {
        
-           sh "E:/Maven/apache-maven-3.5.3-bin/apache-maven-3.5.3/bin/mvn package"
+           sh "/work/jenkins/apache-maven-3.5.0/bin/mvn package"
        
 
      
