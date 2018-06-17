@@ -12,8 +12,8 @@ ws("C:/Users/HARI/.jenkins/workspace/${JOB_NAME}"){
      echo "${env.UUID}"
      checkout([$class: 'GitSCM',  
      branches: [[name:"*/${BRANCH_NAME}"]],
-    // userRemoteConfigs: [[credentialsId: '3981e21b-4a8c-498c-9506-d99d775df168',
-     url: 'https://github.com/Hariprasadnaidu/cucumberbasic.git'])
+     userRemoteConfigs: [[credentialsId: '9f892948-b36e-46c7-bebb-795c73e8e20c',
+     url: 'https://github.com/Hariprasadnaidu/cucumberbasic.git']]])
  }
 def stages = "${env.WORKSPACE}/pipeline_stages"
 echo "${env.WORKSPACE}/pipeline_stages"
