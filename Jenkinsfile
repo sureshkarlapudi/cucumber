@@ -7,7 +7,7 @@ def generateGUID() {
 node ("master") 
 {
 env.UUID = generateGUID()
-ws("C:/Users/HARI/.jenkins/workspace/${JOB_NAME}"){
+ws("/work/jenkins/workspace/${JOB_NAME}"){
  stage ("checkout") {
      echo "${env.UUID}"
      checkout([$class: 'GitSCM',  
@@ -21,37 +21,12 @@ switch ("${BRANCH_NAME}".toUpperCase()) {
  
     case ~/^master\/.*$/: 
       load "${stages}/build"
-    // load "${stages}/test"
       break;
     case "DEVELOP":   
       load "${stages}/build"
       break; 
-      /*load "${stages}/test"
-      load "${stages}/artifact_upload"
-      load "${stages}/deploy_dev"
-           
-    case ~/^BUGFIX\/.*$/:    
-      load "${stages}/build"
-      load "${stages}/artifact_upload"
-      load "${stages}/deploy_dev"
-      break;  
-    case ~/^RELEASE\/.*$/:    
-      load "${stages}/build"
-      load "${stages}/test"
-      load "${stages}/artifact_upload"
-      load "${stages}/securityscan"
-      load "${stages}/deploy_test"
-      break;   
-    
-    case ~/^HOTFIX\/.*$/:   
-      load "${stages}/build"
-      load "${stages}/artifact_upload"
-      load "${stages}/deploy_test"
-      break;*/
+}
 
-      
-  }
-load "${stages}/workspace_cleanup"
 }
 
 } 
