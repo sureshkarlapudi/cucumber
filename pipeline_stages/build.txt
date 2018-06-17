@@ -1,0 +1,34 @@
+stage ("build") {
+
+    echo "################### BUILD STAGE STARTED FOR ${BRANCH_NAME} #######################"
+    
+try {
+       notifyStarted()
+           sh "E:/Maven/apache-maven-3.5.3-bin/apache-maven-3.5.3/bin/mvn package"
+       notifySuccessful()
+
+     
+ }   catch (e) {
+    currentBuild.result = "FAILED"
+    notifyFailed()
+    throw e
+ }
+
+echo "################### BUILD STAGE END FOR ${BRANCH_NAME} #######################"
+}
+
+
+def notifyStarted() {
+    slackSend (color: '#FFFF00', message:  "BUILD STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+  
+  }  
+  def notifySuccessful() {
+  slackSend (color: '#00FF00', message: "BUILD SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+ 
+  }
+  
+  def notifyFailed() {
+  slackSend (color: '#FF0000', message: "BUILD FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+ 
+  }
+
