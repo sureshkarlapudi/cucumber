@@ -7,7 +7,7 @@ def generateGUID() {
 node ("master") 
 {
 env.UUID = generateGUID()
-ws("/work/jenkins/workspace/${JOB_NAME}"){
+ws("C:/Users/HARI/.jenkins/workspace/${JOB_NAME}"){
  stage ("checkout") {
      echo "${env.UUID}"
      checkout([$class: 'GitSCM',  
