@@ -19,7 +19,7 @@ def stages = "${env.WORKSPACE}/pipeline_stages"
 echo "${env.WORKSPACE}/pipeline_stages"
 switch ("${BRANCH_NAME}".toUpperCase()) {
  
-    case ~/^MASTER\/.*$/: 
+    case "MASTER": 
       load "${stages}/build"
       break;
     case "DEVELOP":   
