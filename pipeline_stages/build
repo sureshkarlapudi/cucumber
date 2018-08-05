@@ -4,7 +4,7 @@ stage ("build") {
     
 try {
        
-           bat "E:/Maven/apache-maven-3.5.3-bin/apache-maven-3.5.3/bin/mvn package"
+           bat "E:/DevOps/maven/apache-maven-3.5.2-bin/apache-maven-3.5.2/bin/mvn package"
        
 
      
