@@ -22,7 +22,7 @@ switch ("${BRANCH_NAME}".toUpperCase()) {
     case "MASTER": 
       load "${stages}/build"
       break;
-    case "DEVELOP":   
+    case "suresh":   
       load "${stages}/build"
       break; 
 }
