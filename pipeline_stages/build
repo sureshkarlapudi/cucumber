@@ -1,0 +1,20 @@
+stage ("build") {
+
+    echo "################### BUILD STAGE STARTED FOR ${BRANCH_NAME} #######################"
+    
+try {
+       
+           bat "E:/DevOps/maven/apache-maven-3.5.2-bin/apache-maven-3.5.2/bin/mvn package"
+       
+
+     
+ }   catch (e) {
+    currentBuild.result = "FAILED"
+    
+    throw e
+ }
+
+echo "################### BUILD STAGE END FOR ${BRANCH_NAME} #######################"
+}
+
+
