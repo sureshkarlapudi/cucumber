@@ -3,7 +3,7 @@ pipeline{
 	agent any
 	stages {
 		stage ('build'){
-			mvn clean install
+			sh 'mvn clean install'
 		}
 	}
 }
