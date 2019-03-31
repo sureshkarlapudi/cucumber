@@ -2,7 +2,18 @@
 pipeline{
 	agent any
 	stages {
-		stage ('build'){
+		stage ('suresh build'){
+			when{
+				branch 'suresh'
+			}
+			steps{
+			sh 'mvn clean install'
+			}
+		}
+		stage ('master build'){
+			when {
+				branch 'master'
+			}
 			steps{
 			sh 'mvn clean install'
 			}
